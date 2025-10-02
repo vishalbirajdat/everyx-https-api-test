@@ -1,5 +1,6 @@
 const request = require("supertest");
-const api = request("http://localhost:4000");
+require('dotenv').config();
+const api = request(process.env.API_BASE_URL || "http://localhost:8800");
 
 const normalizeResponse = (response) => ({
   status: response.status,

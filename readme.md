@@ -6,7 +6,7 @@ Run tests and generate snapshots:
 
 ```bash
 
-pnpm test -- --updateSnapshot
+pnpm test --updateSnapshot
 
 ```
 
@@ -38,6 +38,6 @@ If the API response changed intentionally, update snapshots:
 
 ```bash
 
-pnpm test -- --updateSnapshot
+pnpm test --updateSnapshot
 
 ```
