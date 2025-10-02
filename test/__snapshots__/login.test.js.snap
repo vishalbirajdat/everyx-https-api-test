@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Auth V2 Login Email Link should fail for invalid email format: login-link-invalid-email 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""email" must be a valid email",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "email",
+      ],
+      "source": "params",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Auth V2 Login Email Link should fail for missing email param: login-link-missing-email 1`] = `
+{
+  "body": {},
+  "status": 404,
+}
+`;
+
+exports[`Auth V2 Login Email Link should send login link to valid email: login-link-valid-email 1`] = `
+{
+  "body": {
+    "message": "Email sent successfully",
+  },
+  "status": 200,
+}
+`;
