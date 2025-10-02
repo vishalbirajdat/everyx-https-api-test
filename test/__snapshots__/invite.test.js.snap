@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios existing bonus code → success + funds: wallet-verify-existing-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios existing bonus code → success + funds: wallets-existing-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 10,
+      "profit": 0,
+      "topup": 0,
+      "total": 10,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios invalid bonus code → still success -> no fund: wallet-verify-invalid-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios invalid bonus code → still success -> no fund: wallets-invalid-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 0,
+      "profit": 0,
+      "topup": 0,
+      "total": 0,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios no bnus code → success + no fund: wallet-verify-no-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios no bnus code → success + no fund: wallets-no-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 0,
+      "profit": 0,
+      "topup": 0,
+      "total": 0,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios non-existent bonus code → still success -> no fund: wallet-verify-nonexistent-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios non-existent bonus code → still success -> no fund: wallets-nonexistent-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 0,
+      "profit": 0,
+      "topup": 0,
+      "total": 0,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
