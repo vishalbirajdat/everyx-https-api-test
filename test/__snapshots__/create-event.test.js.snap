@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`POST /admin/events  create event should create a new event when authorized 1`] = `
+{
+  "_id": "DEV-000092",
+  "cancellation_reason": null,
+  "cancelled_at": null,
+  "closed_at": null,
+  "closing_at": null,
+  "code": "DEV-000092",
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "created_by": "68c83f8650570332f958898f",
+  "description": "A comprehensive test event for Bitcoin trading #426813",
+  "description_jp": "ビットコイン取引のための包括的なテストイベント #426813",
+  "ends_at": "2025-11-01T11:22:07.304Z",
+  "event_images_url": [
+    "https://everyx-dev-public.s3.eu-west-1.amazonaws.com/upload/1759404127305-charts.jpg",
+  ],
+  "is_featured_events": true,
+  "is_top_events": true,
+  "name": "Bitcoin Test Event 426813",
+  "name_jp": "ビットコインテストイベント426813",
+  "num_outcomes": 0,
+  "og_image_url": "",
+  "recommended_images_url": [],
+  "resolution_ended_at": null,
+  "resolution_started_at": null,
+  "rules": "Standard trading rules apply",
+  "starts_at": null,
+  "status": "created",
+  "stream_url": "",
+  "ticker": "BTCTESTEVENT426813",
+  "timezone": "Asia/Calcutta",
+  "top_event_images_url": [],
+  "updated_at": "[DYNAMIC_TIMESTAMP]",
+  "updated_by": null,
+  "visible": true,
+}
+`;
+
+exports[`POST /admin/events  create event should return 400 for invalid date format 1`] = `
+{
+  "error": "Bad Request",
+  "message": ""ends_at" must be a valid date",
+  "statusCode": 400,
+  "validation": {
+    "keys": [
+      "ends_at",
+    ],
+    "source": "payload",
+  },
+}
+`;
+
+exports[`POST /admin/events  create event should return 400 for invalid timezone 1`] = `
+{
+  "error": "Conflict",
+  "message": "Ticker duplicates",
+  "statusCode": 409,
+}
+`;
+
+exports[`POST /admin/events  create event should return 400 for missing required fields 1`] = `
+{
+  "error": "Bad Request",
+  "message": ""name" is required",
+  "statusCode": 400,
+  "validation": {
+    "keys": [
+      "name",
+    ],
+    "source": "payload",
+  },
+}
+`;
+
+exports[`POST /admin/events  create event should return 400 for the invalid ticker format 1`] = `
+{
+  "error": "Bad Request",
+  "message": ""ticker" with value "invalid-ticker-format" fails to match the required pattern: /^[A-Z][A-Z0-9]*$/",
+  "statusCode": 400,
+  "validation": {
+    "keys": [
+      "ticker",
+    ],
+    "source": "payload",
+  },
+}
+`;
+
+exports[`POST /admin/events  create event should return 401 if no token is provided 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;
+
+exports[`POST /admin/events  create event should return 401 if token is invalid 1`] = `
+{
+  "attributes": {
+    "error": "Invalid token structure",
+  },
+  "error": "Unauthorized",
+  "message": "Invalid token structure",
+  "statusCode": 401,
+}
+`;
+
+exports[`POST /admin/events  create event should return 409 for duplicate event name 1`] = `
+{
+  "error": "Conflict",
+  "message": "Name duplicates",
+  "statusCode": 409,
+}
+`;
+
+exports[`POST /admin/events  create event should return 409 for duplicate ticker 1`] = `
+{
+  "error": "Conflict",
+  "message": "Ticker duplicates",
+  "statusCode": 409,
+}
+`;
+
+exports[`POST /admin/events/:id/close - Close event for trading should return 401 for unauthorized close request 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;
+
+exports[`POST /admin/events/:id/close - Close event for trading should return 404 for non-existent event 1`] = `
+{
+  "error": "Not Found",
+  "message": "Event not found",
+  "statusCode": 404,
+}
+`;
+
+exports[`POST /admin/events/:id/close - Close event for trading should return 409 for trying to close already closed event 1`] = `
+{
+  "error": "Conflict",
+  "message": "Invalid status. You can only close an event that is open, paused, or closing",
+  "statusCode": 409,
+}
+`;
+
+exports[`POST /admin/events/:id/open - Open event for trading should return 401 for unauthorized open request 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;
+
+exports[`POST /admin/events/:id/open - Open event for trading should return 404 for non-existent event 1`] = `
+{
+  "error": "Not Found",
+  "message": "Event not found",
+  "statusCode": 404,
+}
+`;
+
+exports[`POST /admin/events/:id/open - Open event for trading should return 409 for trying to open already opened event 1`] = `
+{
+  "error": "Conflict",
+  "message": "Invalid status. You can only open an event that is created, closed or paused",
+  "statusCode": 409,
+}
+`;
+
+exports[`POST /admin/events/:id/outcomes - Create outcomes should return 201 for creating second outcome 1`] = `
+{
+  "_id": "B",
+  "code": "B",
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "created_by": "68c83f8650570332f958898f",
+  "description": null,
+  "description_jp": null,
+  "event_id": "68de605f4505bf2fe0ee9032",
+  "name": "No",
+  "name_jp": "いいえ",
+  "order": 1000,
+  "updated_at": "[DYNAMIC_TIMESTAMP]",
+  "updated_by": null,
+}
+`;
+
+exports[`POST /admin/events/:id/outcomes - Create outcomes should return 201 for successful creation of outcomes 1`] = `
+{
+  "_id": "A",
+  "code": "A",
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "created_by": "68c83f8650570332f958898f",
+  "description": null,
+  "description_jp": null,
+  "event_id": "68de605f4505bf2fe0ee9032",
+  "name": "Yes",
+  "name_jp": "はい",
+  "order": 1000,
+  "updated_at": "[DYNAMIC_TIMESTAMP]",
+  "updated_by": null,
+}
+`;
+
+exports[`POST /admin/events/:id/outcomes - Create outcomes should return 401 for unauthorized request 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;

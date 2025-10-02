@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`POST /admin/events/:id/resolve - Resolve event should return 400 for missing required fields 1`] = `
+{
+  "error": "Bad Request",
+  "message": ""ends_at" is required",
+  "statusCode": 400,
+  "validation": {
+    "keys": [
+      "ends_at",
+    ],
+    "source": "payload",
+  },
+}
+`;
+
+exports[`POST /admin/events/:id/resolve - Resolve event should return 401 for unauthorized resolve request 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;
+
+exports[`POST /admin/events/:id/resolve - Resolve event should return 404 for non-existent event 1`] = `
+{
+  "error": "Not Found",
+  "message": "Event not found",
+  "statusCode": 404,
+}
+`;
+
+exports[`POST /admin/events/:id/resolve - Resolve event should return 409 for trying to resolve already resolved event 1`] = `
+{
+  "error": "Conflict",
+  "message": "Invalid status. You can only resolve an event that is closed or closing",
+  "statusCode": 409,
+}
+`;
