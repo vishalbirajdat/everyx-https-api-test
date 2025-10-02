@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`POST /admin/events/:id/pause - Pause event for trading should return 401 for unauthorized pause request 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;
+
+exports[`POST /admin/events/:id/pause - Pause event for trading should return 404 for non-existent event 1`] = `
+{
+  "error": "Not Found",
+  "message": "Event not found",
+  "statusCode": 404,
+}
+`;
+
+exports[`POST /admin/events/:id/pause - Pause event for trading should return 409 for trying to pause already paused event 1`] = `
+{
+  "error": "Conflict",
+  "message": "Invalid status. You can only pause an event that is open",
+  "statusCode": 409,
+}
+`;

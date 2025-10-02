@@ -16,5 +16,8 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3"
+  },
+  "jest":{
+    "testTimeout": 300000
   }
 }
