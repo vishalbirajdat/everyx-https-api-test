@@ -26,6 +26,19 @@ function sanitizeResponse(response) {
         sanitized.timestamp = '[DYNAMIC_TIMESTAMP]';
     }
 
+    // Sanitize JWT token fields
+    if (sanitized.token) {
+        sanitized.token = '[DYNAMIC_JWT_TOKEN]';
+    }
+
+    if (sanitized.iat) {
+        sanitized.iat = '[DYNAMIC_TIMESTAMP]';
+    }
+
+    if (sanitized.exp) {
+        sanitized.exp = '[DYNAMIC_TIMESTAMP]';
+    }
+
     // Sanitize any nested objects or arrays
     Object.keys(sanitized).forEach(key => {
         if (Array.isArray(sanitized[key])) {

@@ -1,0 +1,923 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Order Creation and Trading Flow Event Closure Tests should close the event for resolution 1`] = `{}`;
+
+exports[`Order Creation and Trading Flow Event Closure Tests should verify event is closed and no longer accepting trades 1`] = `
+{
+  "_id": "DEV-000053",
+  "code": "DEV-000053",
+  "collections": [],
+  "description": "Test event for resolve functionality #249496",
+  "ends_at": "2025-11-03T10:13:58.982Z",
+  "event_images_url": [],
+  "name": "Resolve Test Event 249496",
+  "og_image_url": null,
+  "outcomes": [
+    {
+      "_id": "A",
+      "description": "Team A emerges victorious",
+      "event_id": "DEV-000053",
+      "name": "Team A Wins",
+      "trader_info": {
+        "estimated_payout": 260.5,
+        "estimated_probability": 0.2637367418886248,
+        "event_id": "DEV-000053",
+        "event_outcome_id": "A",
+        "max_leverage": 1,
+        "max_pledge": 24.38,
+        "max_wager": 24.38,
+        "min_pledge": 10,
+        "min_wager": 10,
+        "timestamp": "[DYNAMIC_TIMESTAMP]",
+      },
+    },
+    {
+      "_id": "B",
+      "description": "Team B emerges victorious",
+      "event_id": "DEV-000053",
+      "name": "Team B Wins",
+      "trader_info": {
+        "estimated_payout": 34.5,
+        "estimated_probability": 0.7362632581113752,
+        "event_id": "DEV-000053",
+        "event_outcome_id": "B",
+        "max_leverage": 2.9348134,
+        "max_pledge": 44.02,
+        "max_wager": 44.02,
+        "min_pledge": 10,
+        "min_wager": 10,
+        "timestamp": "[DYNAMIC_TIMESTAMP]",
+      },
+    },
+  ],
+  "participants_count": 24,
+  "recommended_images_url": [],
+  "rules": "Standard trading rules apply",
+  "status": "closed",
+  "stream_url": null,
+  "tags": [],
+  "ticker": "RESOLVETEST249496",
+  "top_event_images_url": [],
+  "volume": 678.23,
+}
+`;
+
+exports[`Order Creation and Trading Flow Event Resolution Tests should resolve the event with outcome A as winner 1`] = `{}`;
+
+exports[`Order Creation and Trading Flow Event Resolution Tests should verify event status changed to resolved 1`] = `
+{
+  "_id": "DEV-000053",
+  "code": "DEV-000053",
+  "collections": [],
+  "description": "Test event for resolve functionality #249496",
+  "ends_at": "2025-10-04T10:16:00.000Z",
+  "event_images_url": [],
+  "name": "Resolve Test Event 249496",
+  "og_image_url": null,
+  "outcomes": [
+    {
+      "_id": "A",
+      "description": "Team A emerges victorious",
+      "event_id": "DEV-000053",
+      "name": "Team A Wins",
+      "trader_info": {
+        "estimated_payout": null,
+        "estimated_probability": 0,
+        "event_id": "DEV-000053",
+        "event_outcome_id": "A",
+        "max_leverage": 1,
+        "max_pledge": null,
+        "max_wager": null,
+        "min_pledge": null,
+        "min_wager": null,
+        "timestamp": "[DYNAMIC_TIMESTAMP]",
+      },
+    },
+    {
+      "_id": "B",
+      "description": "Team B emerges victorious",
+      "event_id": "DEV-000053",
+      "name": "Team B Wins",
+      "trader_info": {
+        "estimated_payout": 34.5,
+        "estimated_probability": 1,
+        "event_id": "DEV-000053",
+        "event_outcome_id": "B",
+        "max_leverage": 1,
+        "max_pledge": null,
+        "max_wager": null,
+        "min_pledge": null,
+        "min_wager": null,
+        "timestamp": "[DYNAMIC_TIMESTAMP]",
+      },
+    },
+  ],
+  "participants_count": 24,
+  "recommended_images_url": [],
+  "rules": "Standard trading rules apply",
+  "status": "resolved",
+  "stream_url": null,
+  "tags": [],
+  "ticker": "RESOLVETEST249496",
+  "top_event_images_url": [],
+  "volume": 678.23,
+}
+`;
+
+exports[`Order Creation and Trading Flow Post-Resolution User Positions should verify final user positions after resolution: user-positions-dny9136833946@gmail.com 1`] = `
+{
+  "0": {
+    "created_at": "[DYNAMIC_TIMESTAMP]",
+    "current_probability": null,
+    "entry_probability": null,
+    "event": {
+      "_id": "DEV-000053",
+      "code": "DEV-000053",
+      "description": "Test event for resolve functionality #249496",
+      "ends_at": "2025-10-04T10:16:00.000Z",
+      "event_images_url": [],
+      "name": "Resolve Test Event 249496",
+      "resolved_outcome_id": "B",
+      "status": "inactive",
+      "ticker": "RESOLVETEST249496",
+    },
+    "event_id": "DEV-000053",
+    "event_images_url": [],
+    "event_status": "resolved",
+    "fill_count": 0,
+    "final_indicative_return": 0,
+    "indicative_payout": 0,
+    "indicative_pnl": 0,
+    "indicative_return": 0,
+    "is_leveraged": true,
+    "last_update_time": "2025-10-04T10:14:33.470844566Z",
+    "payout_return_for_new_wagers": 0,
+    "pledge": 10,
+    "positions": [
+      {
+        "created_at": "[DYNAMIC_TIMESTAMP]",
+        "current_probability": 0,
+        "entry_probability": null,
+        "event": {
+          "_id": "DEV-000053",
+          "code": "DEV-000053",
+          "description": "Test event for resolve functionality #249496",
+          "ends_at": "2025-10-04T10:16:00.000Z",
+          "event_images_url": [],
+          "name": "Resolve Test Event 249496",
+          "resolved_outcome_id": "B",
+          "status": "inactive",
+          "ticker": "RESOLVETEST249496",
+        },
+        "event_id": "DEV-000053",
+        "event_outcome": {
+          "_id": "68e0f367e10236e882b1d143",
+          "description": "Team A emerges victorious",
+          "event_id": "68e0f367e10236e882b1d13c",
+          "index": 0,
+          "name": "Team A Wins",
+        },
+        "event_outcome_id": "A",
+        "final_indicative_return": 0,
+        "id": "[DYNAMIC_ID]",
+        "is_leveraged": true,
+        "last_reason": "MARGINCALLED",
+        "last_update_time": "2025-10-04T10:14:33.470844566Z",
+        "leverage": 1.625,
+        "payout_return_for_new_wagers": 0,
+        "pledge": 10,
+        "probability": 0,
+        "probability_change": null,
+        "realized_payoff": 0,
+        "realized_payout": 0,
+        "realized_pnl": -10,
+        "realized_return": -100,
+        "stop_distance": 0,
+        "stop_warning": false,
+        "type": "closed",
+        "user_id": "68dbf1fafcf9e51637f518be",
+        "wager": 16.25,
+        "wager_id": "551",
+        "wager_position_id": "551",
+        "wagered_at": "2025-10-04T10:14:33.470844566Z",
+      },
+    ],
+    "probability_change": null,
+    "realized_payoff": 0,
+    "realized_payout": 0,
+    "realized_pnl": -10,
+    "realized_return": -100,
+    "trader_id": "T-48OCYR",
+    "type": "closed",
+    "user_id": "68dbf1fafcf9e51637f518be",
+    "wager": 16.25,
+    "wagered_at": "2025-10-04T10:14:33.470844566Z",
+  },
+}
+`;
+
+exports[`Order Creation and Trading Flow Post-Resolution User Positions should verify final user positions after resolution: user-positions-yadavdeepak5112001@gmail.com 1`] = `
+{
+  "0": {
+    "created_at": "[DYNAMIC_TIMESTAMP]",
+    "current_probability": 1,
+    "entry_probability": null,
+    "event": {
+      "_id": "DEV-000053",
+      "code": "DEV-000053",
+      "description": "Test event for resolve functionality #249496",
+      "ends_at": "2025-10-04T10:16:00.000Z",
+      "event_images_url": [],
+      "name": "Resolve Test Event 249496",
+      "resolved_outcome_id": "B",
+      "status": "inactive",
+      "ticker": "RESOLVETEST249496",
+    },
+    "event_id": "DEV-000053",
+    "event_images_url": [],
+    "event_status": "resolved",
+    "fill_count": 0,
+    "final_indicative_return": 34.5,
+    "indicative_payout": 0,
+    "indicative_pnl": 0,
+    "indicative_return": 0,
+    "is_leveraged": false,
+    "last_update_time": "2025-10-04T10:14:34.639434842Z",
+    "payout_return_for_new_wagers": 34.5,
+    "pledge": 511.98,
+    "positions": [
+      {
+        "created_at": "[DYNAMIC_TIMESTAMP]",
+        "current_probability": 1,
+        "entry_probability": null,
+        "event": {
+          "_id": "DEV-000053",
+          "code": "DEV-000053",
+          "description": "Test event for resolve functionality #249496",
+          "ends_at": "2025-10-04T10:16:00.000Z",
+          "event_images_url": [],
+          "name": "Resolve Test Event 249496",
+          "resolved_outcome_id": "B",
+          "status": "inactive",
+          "ticker": "RESOLVETEST249496",
+        },
+        "event_id": "DEV-000053",
+        "event_outcome": {
+          "_id": "68e0f367e10236e882b1d147",
+          "description": "Team B emerges victorious",
+          "event_id": "68e0f367e10236e882b1d13c",
+          "index": 1,
+          "name": "Team B Wins",
+        },
+        "event_outcome_id": "B",
+        "final_indicative_return": 34.5,
+        "id": "[DYNAMIC_ID]",
+        "is_leveraged": false,
+        "last_reason": "WIN",
+        "last_update_time": "2025-10-04T10:14:34.639434842Z",
+        "leverage": 1,
+        "payout_return_for_new_wagers": 34.5,
+        "pledge": 511.98,
+        "probability": 1,
+        "probability_change": null,
+        "realized_payoff": 557.51,
+        "realized_payout": 45.53,
+        "realized_pnl": 45.53,
+        "realized_return": 8.892925504902536,
+        "stop_distance": 0,
+        "stop_warning": false,
+        "type": "closed",
+        "user_id": "68dbf3eefcf9e51637f518c1",
+        "wager": 511.98,
+        "wager_id": "552",
+        "wager_position_id": "552",
+        "wagered_at": "2025-10-04T10:14:34.639434842Z",
+      },
+    ],
+    "probability_change": null,
+    "realized_payoff": 557.51,
+    "realized_payout": 45.53,
+    "realized_pnl": 45.53,
+    "realized_return": 8.892925504902536,
+    "trader_id": "T-6094YB",
+    "type": "closed",
+    "user_id": "68dbf3eefcf9e51637f518c1",
+    "wager": 511.98,
+    "wagered_at": "2025-10-04T10:14:34.639434842Z",
+  },
+}
+`;
+
+exports[`Order Creation and Trading Flow Pre-Resolution User Positions should verify event is still open for trading 1`] = `
+{
+  "_id": "DEV-000053",
+  "code": "DEV-000053",
+  "collections": [],
+  "description": "Test event for resolve functionality #249496",
+  "ends_at": "2025-11-03T10:13:58.982Z",
+  "event_images_url": [],
+  "name": "Resolve Test Event 249496",
+  "og_image_url": null,
+  "outcomes": [
+    {
+      "_id": "A",
+      "description": "Team A emerges victorious",
+      "event_id": "DEV-000053",
+      "name": "Team A Wins",
+      "trader_info": {
+        "estimated_payout": 260.5,
+        "estimated_probability": 0.2637367418886248,
+        "event_id": "DEV-000053",
+        "event_outcome_id": "A",
+        "max_leverage": 1,
+        "max_pledge": 24.38,
+        "max_wager": 24.38,
+        "min_pledge": 10,
+        "min_wager": 10,
+        "timestamp": "[DYNAMIC_TIMESTAMP]",
+      },
+    },
+    {
+      "_id": "B",
+      "description": "Team B emerges victorious",
+      "event_id": "DEV-000053",
+      "name": "Team B Wins",
+      "trader_info": {
+        "estimated_payout": 34.5,
+        "estimated_probability": 0.7362632581113752,
+        "event_id": "DEV-000053",
+        "event_outcome_id": "B",
+        "max_leverage": 2.9348134,
+        "max_pledge": 44.02,
+        "max_wager": 44.02,
+        "min_pledge": 10,
+        "min_wager": 10,
+        "timestamp": "[DYNAMIC_TIMESTAMP]",
+      },
+    },
+  ],
+  "participants_count": 24,
+  "recommended_images_url": [],
+  "rules": "Standard trading rules apply",
+  "status": "open",
+  "stream_url": null,
+  "tags": [],
+  "ticker": "RESOLVETEST249496",
+  "top_event_images_url": [],
+  "volume": 678.23,
+}
+`;
+
+exports[`Order Creation and Trading Flow Pre-Resolution User Positions should verify user positions after wagers are placed for user 1: user-positions-dny9136833946@gmail.com 1`] = `
+{
+  "0": {
+    "created_at": "[DYNAMIC_TIMESTAMP]",
+    "current_probability": 0.2637367418886248,
+    "entry_probability": null,
+    "event": {
+      "_id": "DEV-000053",
+      "code": "DEV-000053",
+      "description": "Test event for resolve functionality #249496",
+      "ends_at": "2025-11-03T10:13:58.982Z",
+      "event_images_url": [],
+      "name": "Resolve Test Event 249496",
+      "resolved_outcome_id": null,
+      "status": "active",
+      "ticker": "RESOLVETEST249496",
+    },
+    "event_id": "DEV-000053",
+    "event_images_url": [],
+    "event_status": "open",
+    "fill_count": 0,
+    "final_indicative_return": 260.5,
+    "indicative_payout": 0,
+    "indicative_pnl": 0,
+    "indicative_return": 0,
+    "is_leveraged": true,
+    "last_update_time": "2025-10-04T10:14:33.470844566Z",
+    "payout_return_for_new_wagers": 260.5,
+    "pledge": 10,
+    "positions": [
+      {
+        "created_at": "[DYNAMIC_TIMESTAMP]",
+        "current_probability": 0.2637367418886248,
+        "entry_probability": null,
+        "event": {
+          "_id": "DEV-000053",
+          "code": "DEV-000053",
+          "description": "Test event for resolve functionality #249496",
+          "ends_at": "2025-11-03T10:13:58.982Z",
+          "event_images_url": [],
+          "name": "Resolve Test Event 249496",
+          "resolved_outcome_id": null,
+          "status": "active",
+          "ticker": "RESOLVETEST249496",
+        },
+        "event_id": "DEV-000053",
+        "event_outcome": {
+          "_id": "68e0f367e10236e882b1d143",
+          "description": "Team A emerges victorious",
+          "event_id": "68e0f367e10236e882b1d13c",
+          "index": 0,
+          "name": "Team A Wins",
+        },
+        "event_outcome_id": "A",
+        "final_indicative_return": 260.5,
+        "id": "[DYNAMIC_ID]",
+        "is_leveraged": true,
+        "last_reason": "MARGINCALLED",
+        "last_update_time": "2025-10-04T10:14:33.470844566Z",
+        "leverage": 1.625,
+        "payout_return_for_new_wagers": 260.5,
+        "pledge": 10,
+        "probability": 0.2637367418886248,
+        "probability_change": null,
+        "realized_payoff": 0,
+        "realized_payout": 0,
+        "realized_pnl": -10,
+        "realized_return": -100,
+        "stop_distance": 0,
+        "stop_warning": false,
+        "type": "closed",
+        "user_id": "68dbf1fafcf9e51637f518be",
+        "wager": 16.25,
+        "wager_id": "551",
+        "wager_position_id": "551",
+        "wagered_at": "2025-10-04T10:14:33.470844566Z",
+      },
+    ],
+    "probability_change": null,
+    "realized_payoff": 0,
+    "realized_payout": 0,
+    "realized_pnl": -10,
+    "realized_return": -100,
+    "trader_id": "T-48OCYR",
+    "type": "closed",
+    "user_id": "68dbf1fafcf9e51637f518be",
+    "wager": 16.25,
+    "wagered_at": "2025-10-04T10:14:33.470844566Z",
+  },
+}
+`;
+
+exports[`Order Creation and Trading Flow Pre-Resolution User Positions should verify user positions after wagers are placed for user 2: user-positions-yadavdeepak5112001@gmail.com 1`] = `
+{
+  "0": {
+    "created_at": "[DYNAMIC_TIMESTAMP]",
+    "current_probability": 0.7362632581113752,
+    "entry_probability": null,
+    "event": {
+      "_id": "DEV-000053",
+      "code": "DEV-000053",
+      "description": "Test event for resolve functionality #249496",
+      "ends_at": "2025-11-03T10:13:58.982Z",
+      "event_images_url": [],
+      "name": "Resolve Test Event 249496",
+      "resolved_outcome_id": null,
+      "status": "active",
+      "ticker": "RESOLVETEST249496",
+    },
+    "event_id": "DEV-000053",
+    "event_images_url": [],
+    "event_status": "open",
+    "fill_count": 0,
+    "final_indicative_return": 34.5,
+    "indicative_payout": 197.31,
+    "indicative_pnl": 197.31,
+    "indicative_return": 38.53861478964022,
+    "is_leveraged": false,
+    "last_update_time": "2025-10-04T10:14:33.470844566Z",
+    "payout_return_for_new_wagers": 34.5,
+    "pledge": 511.98,
+    "positions": [
+      {
+        "created_at": "[DYNAMIC_TIMESTAMP]",
+        "current_probability": 0.7362632581113752,
+        "entry_probability": null,
+        "event": {
+          "_id": "DEV-000053",
+          "code": "DEV-000053",
+          "description": "Test event for resolve functionality #249496",
+          "ends_at": "2025-11-03T10:13:58.982Z",
+          "event_images_url": [],
+          "name": "Resolve Test Event 249496",
+          "resolved_outcome_id": null,
+          "status": "active",
+          "ticker": "RESOLVETEST249496",
+        },
+        "event_id": "DEV-000053",
+        "event_outcome": {
+          "_id": "68e0f367e10236e882b1d147",
+          "description": "Team B emerges victorious",
+          "event_id": "68e0f367e10236e882b1d13c",
+          "index": 1,
+          "name": "Team B Wins",
+        },
+        "event_outcome_id": "B",
+        "final_indicative_return": 34.5,
+        "id": "[DYNAMIC_ID]",
+        "indicative_payout": 197.31,
+        "indicative_pnl": 197.31,
+        "indicative_return": 38.53861478964022,
+        "is_leveraged": false,
+        "last_reason": null,
+        "last_update_time": "2025-10-04T10:14:33.470844566Z",
+        "leverage": 1,
+        "payout_return_for_new_wagers": 34.5,
+        "pledge": 511.98,
+        "probability": 0.7362632581113752,
+        "probability_change": null,
+        "stop_distance": 0,
+        "stop_probability": 0,
+        "stop_warning": false,
+        "type": "open",
+        "user_id": "68dbf3eefcf9e51637f518c1",
+        "wager": 511.98,
+        "wager_id": "DEV-000053_B",
+        "wager_position_id": "DEV-000053_B",
+        "wagered_at": "2025-10-04T10:14:33.470844566Z",
+      },
+    ],
+    "probability_change": null,
+    "realized_payout": 0,
+    "realized_pnl": 0,
+    "realized_return": 0,
+    "trader_id": "T-6094YB",
+    "type": "open",
+    "user_id": "68dbf3eefcf9e51637f518c1",
+    "wager": 511.98,
+    "wagered_at": "2025-10-04T10:14:33.470844566Z",
+  },
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should create a wager on outcome A for user 1 1`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d143",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1.6254146,
+  "pledge": 10,
+  "wager": 16.254146,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 1 on outcome A 1`] = `
+{
+  "after_return": null,
+  "before_return": null,
+  "current_probability": 0.5,
+  "event_id": "DEV-000053",
+  "event_outcome_id": "A",
+  "expires_at": null,
+  "indicative_payout": 15,
+  "indicative_payout_rate": 94.39999999999999,
+  "indicative_return": 150,
+  "leverage": 1.6254146,
+  "loan": 6.25,
+  "max_leverage": 1.6254146,
+  "max_pledge": 14.99,
+  "max_wager": 14.99,
+  "min_pledge": 10,
+  "min_wager": 10,
+  "new_probability": 0.5144113048063633,
+  "outcome_indicative_return": 94.39999999999999,
+  "pledge": 10,
+  "probability_change": 0.014411304806363323,
+  "stop_probability": 0.2802663264560072,
+  "wager": 16.25,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 1`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 2`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 3`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 4`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 5`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 6`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 7`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 8`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 9`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 10`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 11`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 12`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 13`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 14`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 15`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 16`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 17`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 18`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 19`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 20`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow Quote Generation Tests should generate quote for user 2 on outcome B 21`] = `
+{
+  "created_at": "[DYNAMIC_TIMESTAMP]",
+  "eventId": "68e0f367e10236e882b1d13c",
+  "eventOutcomeId": "68e0f367e10236e882b1d147",
+  "id": "[DYNAMIC_ID]",
+  "leverage": 1,
+  "pledge": 24.38,
+  "wager": 24.38,
+}
+`;
+
+exports[`Order Creation and Trading Flow User Authentication Tests should generate token for user 1 (dny9136833946@gmail.com) 1`] = `
+{
+  "token": "[DYNAMIC_JWT_TOKEN]",
+}
+`;
+
+exports[`Order Creation and Trading Flow User Authentication Tests should generate token for user 2 (yadavdeepak5112001@gmail.com) 1`] = `
+{
+  "token": "[DYNAMIC_JWT_TOKEN]",
+}
+`;
+
+exports[`Order Creation and Trading Flow Wallet Information Tests should get wallet info for user 1 1`] = `
+{
+  "balances": {
+    "bonus": 0,
+    "profit": 75.91,
+    "topup": 10674,
+    "total": 10749.91,
+    "withdrawable": 10749.91,
+  },
+  "success": true,
+  "trader_id": "T-48OCYR",
+  "wallets": {
+    "bonus": {
+      "balance": 0,
+      "currency": "USDT",
+      "id": "[DYNAMIC_ID]",
+      "last_transaction_at": null,
+    },
+    "profit": {
+      "balance": 75.91,
+      "currency": "USDT",
+      "id": "[DYNAMIC_ID]",
+      "last_transaction_at": "2025-10-04T08:29:11.000Z",
+    },
+    "topup": {
+      "balance": 10674,
+      "currency": "USDT",
+      "id": "[DYNAMIC_ID]",
+      "last_transaction_at": "2025-10-04T10:11:33.000Z",
+    },
+  },
+}
+`;
+
+exports[`Order Creation and Trading Flow Wallet Information Tests should get wallet info for user 2 1`] = `
+{
+  "balances": {
+    "bonus": 0,
+    "profit": 93.86,
+    "topup": 98147.12,
+    "total": 98240.98,
+    "withdrawable": 98240.98,
+  },
+  "success": true,
+  "trader_id": "T-6094YB",
+  "wallets": {
+    "bonus": {
+      "balance": 0,
+      "currency": "USDT",
+      "id": "[DYNAMIC_ID]",
+      "last_transaction_at": null,
+    },
+    "profit": {
+      "balance": 93.86,
+      "currency": "USDT",
+      "id": "[DYNAMIC_ID]",
+      "last_transaction_at": "2025-10-04T10:11:57.000Z",
+    },
+    "topup": {
+      "balance": 98147.12,
+      "currency": "USDT",
+      "id": "[DYNAMIC_ID]",
+      "last_transaction_at": "2025-10-04T10:11:57.000Z",
+    },
+  },
+}
+`;
