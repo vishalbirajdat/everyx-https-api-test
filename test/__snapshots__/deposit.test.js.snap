@@ -1,0 +1,730 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Deposit User Flow - Complete Test Suite 1. Wallet Creation GET /deposit/create/wallet - create deposit wallet 1`] = `
+{
+  "body": {
+    "address": "0xeea4ee3ee5d38deb97c8c17ff4ae982adb1cee61",
+    "message": "Wallet Created Successfully!",
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 2. Deposit Transaction Creation Validation Error Tests POST /deposit/create/transaction - duplicate transaction hash 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" length must be 66 characters long",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 2. Deposit Transaction Creation Validation Error Tests POST /deposit/create/transaction - invalid network 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""network" must be one of [POLY, BSC]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "network",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 2. Deposit Transaction Creation Validation Error Tests POST /deposit/create/transaction - invalid transaction hash length 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" length must be 66 characters long",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 2. Deposit Transaction Creation Validation Error Tests POST /deposit/create/transaction - missing amount 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""amount" is required",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "amount",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 2. Deposit Transaction Creation Validation Error Tests POST /deposit/create/transaction - without authorization 1`] = `
+{
+  "body": {
+    "error": "Unauthorized",
+    "message": "Missing authentication",
+    "statusCode": 401,
+  },
+  "status": 401,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 3. Wallet Operations Individual Wallet Details GET /wallets/bonus/details - get bonus wallet details 1`] = `
+{
+  "body": {
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallet": {
+      "balance": "10.00",
+      "can_wager": true,
+      "currency": "USDT",
+      "id": 1153511343,
+      "is_active": true,
+      "last_transaction_at": "2025-10-01T06:00:04.000Z",
+      "wallet_type": "bonus",
+      "withdrawable": false,
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 3. Wallet Operations Individual Wallet Details GET /wallets/profit/details - get profit wallet details 1`] = `
+{
+  "body": {
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallet": {
+      "balance": "0.00",
+      "can_wager": true,
+      "currency": "USDT",
+      "id": 3880088421,
+      "is_active": true,
+      "last_transaction_at": null,
+      "wallet_type": "profit",
+      "withdrawable": true,
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 3. Wallet Operations Individual Wallet Details GET /wallets/topup/details - get topup wallet details 1`] = `
+{
+  "body": {
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallet": {
+      "balance": "0.00",
+      "can_wager": true,
+      "currency": "USDT",
+      "id": 657582908,
+      "is_active": true,
+      "last_transaction_at": null,
+      "wallet_type": "topup",
+      "withdrawable": true,
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 3. Wallet Operations Wallet Information GET /wallets - list user wallets 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 10,
+      "profit": 0,
+      "topup": 0,
+      "total": 10,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 10,
+        "currency": "USDT",
+        "id": 1153511343,
+        "last_transaction_at": "2025-10-01T06:00:04.000Z",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": 3880088421,
+        "last_transaction_at": null,
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": 657582908,
+        "last_transaction_at": null,
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 3. Wallet Operations Wallet Information GET /wallets/withdrawable-balance - get withdrawable balance 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 10,
+      "profit": 0,
+      "topup": 0,
+      "total": 10,
+      "withdrawable": 0,
+    },
+    "breakdown": {
+      "bonus_balance": 10,
+      "bonus_used_in_active_wagers": 0,
+      "bonus_withdrawable": 0,
+      "coratio_factor": 2.5,
+      "coratio_value": 0.25,
+      "profit_withdrawable": 0,
+      "topup_withdrawable": 0,
+      "x_value": 10,
+    },
+    "success": true,
+    "withdrawable_balance": 0,
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 4. Wallet Transactions All Transactions GET /wallets/all/transactions - get all wallet transactions 1`] = `
+{
+  "body": {
+    "success": true,
+    "transactions": [
+      {
+        "amount": "10.00",
+        "created_at": "2025-10-01T06:00:04.000Z",
+        "event_id": null,
+        "event_name": null,
+        "from": 2390238911,
+        "id": 1,
+        "metadata": {
+          "invite_code": "VIR",
+          "reason": "invite_code_bonus",
+          "user_id": "68dcc363a5678ad76e4972b4",
+        },
+        "status": "COMPLETED",
+        "to": 1153511343,
+        "transaction_type": 7,
+      },
+    ],
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 4. Wallet Transactions Individual Wallet Transactions GET /wallets/bonus/transactions - get bonus wallet transactions 1`] = `
+{
+  "body": {
+    "success": true,
+    "transactions": [
+      {
+        "amount": "10.00",
+        "created_at": "2025-10-01T06:00:04.000Z",
+        "event_id": null,
+        "event_name": null,
+        "from": 2390238911,
+        "id": 1,
+        "metadata": {
+          "invite_code": "VIR",
+          "reason": "invite_code_bonus",
+          "user_id": "68dcc363a5678ad76e4972b4",
+        },
+        "status": "COMPLETED",
+        "to": 1153511343,
+        "transaction_type": 7,
+      },
+    ],
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 4. Wallet Transactions Individual Wallet Transactions GET /wallets/profit/transactions - get profit wallet transactions 1`] = `
+{
+  "body": {
+    "success": true,
+    "transactions": [],
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 4. Wallet Transactions Individual Wallet Transactions GET /wallets/topup/transactions - get topup wallet transactions 1`] = `
+{
+  "body": {
+    "success": true,
+    "transactions": [],
+  },
+  "status": 200,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 4. Wallet Transactions Transaction Filters GET /wallets/topup/transactions - with date range 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""start_date" is not allowed",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "start_date",
+      ],
+      "source": "query",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Amount Edge Cases POST /deposit/create/transaction - empty amount 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""amount" is not allowed to be empty",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "amount",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Amount Edge Cases POST /deposit/create/transaction - high precision amount 1`] = `
+{
+  "body": {
+    "message": "Deposit transaction submitted successfully! Your deposit will be processed once confirmed on the blockchain.",
+    "network": "BSC",
+    "status": "PENDING",
+    "transaction_hash": "<DYNAMIC_TXN_HASH>",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Amount Edge Cases POST /deposit/create/transaction - negative amount 1`] = `
+{
+  "body": {
+    "message": "Deposit transaction submitted successfully! Your deposit will be processed once confirmed on the blockchain.",
+    "network": "BSC",
+    "status": "PENDING",
+    "transaction_hash": "<DYNAMIC_TXN_HASH>",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Amount Edge Cases POST /deposit/create/transaction - non-numeric amount 1`] = `
+{
+  "body": {
+    "message": "Deposit transaction submitted successfully! Your deposit will be processed once confirmed on the blockchain.",
+    "network": "BSC",
+    "status": "PENDING",
+    "transaction_hash": "<DYNAMIC_TXN_HASH>",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Amount Edge Cases POST /deposit/create/transaction - very large amount 1`] = `
+{
+  "body": {
+    "message": "Deposit transaction submitted successfully! Your deposit will be processed once confirmed on the blockchain.",
+    "network": "BSC",
+    "status": "PENDING",
+    "transaction_hash": "<DYNAMIC_TXN_HASH>",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Amount Edge Cases POST /deposit/create/transaction - zero amount 1`] = `
+{
+  "body": {
+    "message": "Deposit transaction submitted successfully! Your deposit will be processed once confirmed on the blockchain.",
+    "network": "BSC",
+    "status": "PENDING",
+    "transaction_hash": "<DYNAMIC_TXN_HASH>",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Authentication Edge Cases GET /deposit/create/wallet - empty authorization 1`] = `
+{
+  "body": {
+    "error": "Unauthorized",
+    "message": "Missing authentication",
+    "statusCode": 401,
+  },
+  "status": 401,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Authentication Edge Cases GET /deposit/create/wallet - malformed token 1`] = `
+{
+  "body": {
+    "attributes": {
+      "error": "Invalid token structure",
+    },
+    "error": "Unauthorized",
+    "message": "Invalid token structure",
+    "statusCode": 401,
+  },
+  "status": 401,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Authentication Edge Cases GET /deposit/create/wallet - token without Bearer 1`] = `
+{
+  "body": {
+    "error": "Unauthorized",
+    "message": "Missing authentication",
+    "statusCode": 401,
+  },
+  "status": 401,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Date Filter Edge Cases GET /wallets/topup/transactions - future dates 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""start_date" is not allowed",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "start_date",
+      ],
+      "source": "query",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Date Filter Edge Cases GET /wallets/topup/transactions - invalid date format 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""start_date" is not allowed",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "start_date",
+      ],
+      "source": "query",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Date Filter Edge Cases GET /wallets/topup/transactions - inverted date range 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""start_date" is not allowed",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "start_date",
+      ],
+      "source": "query",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Date Filter Edge Cases GET /wallets/topup/transactions - malformed date 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""start_date" is not allowed",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "start_date",
+      ],
+      "source": "query",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Network Edge Cases POST /deposit/create/transaction - case sensitive network 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""network" must be one of [POLY, BSC]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "network",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Network Edge Cases POST /deposit/create/transaction - empty network 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""network" must be one of [POLY, BSC]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "network",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Network Edge Cases POST /deposit/create/transaction - special characters in network 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""network" must be one of [POLY, BSC]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "network",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Network Edge Cases POST /deposit/create/transaction - unsupported network 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""network" must be one of [POLY, BSC]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "network",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Request Body Edge Cases POST /deposit/create/transaction - extra fields 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""extraField" is not allowed",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "extraField",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Request Body Edge Cases POST /deposit/create/transaction - wrong data types 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" must be a string",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Transaction Hash Edge Cases POST /deposit/create/transaction - empty hash 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" is not allowed to be empty",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Transaction Hash Edge Cases POST /deposit/create/transaction - hash without 0x prefix 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" length must be 66 characters long",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Transaction Hash Edge Cases POST /deposit/create/transaction - invalid characters in hash 1`] = `
+{
+  "body": {
+    "error": "Internal Server Error",
+    "message": "An internal server error occurred",
+    "statusCode": 500,
+  },
+  "status": 500,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Transaction Hash Edge Cases POST /deposit/create/transaction - too long hash 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" length must be 66 characters long",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Transaction Hash Edge Cases POST /deposit/create/transaction - too short hash 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""txnHash" length must be 66 characters long",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "txnHash",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Wallet Type Edge Cases GET /wallets//details - empty wallet type 1`] = `
+{
+  "body": {},
+  "status": 404,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Wallet Type Edge Cases GET /wallets/TOPUP/details - case sensitive wallet type 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""wallet_type" must be one of [topup, profit, bonus]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "wallet_type",
+      ],
+      "source": "params",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 5. Edge Case Tests Wallet Type Edge Cases GET /wallets/invalid_wallet_type/details - invalid wallet type 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""wallet_type" must be one of [topup, profit, bonus]",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "wallet_type",
+      ],
+      "source": "params",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 6. Error Scenarios Authentication Errors GET /deposit/create/wallet - without authorization 1`] = `
+{
+  "body": {
+    "error": "Unauthorized",
+    "message": "Missing authentication",
+    "statusCode": 401,
+  },
+  "status": 401,
+}
+`;
+
+exports[`Deposit User Flow - Complete Test Suite 6. Error Scenarios Authentication Errors GET /wallets - without authorization 1`] = `
+{
+  "body": {
+    "error": "Unauthorized",
+    "message": "Missing authentication",
+    "statusCode": 401,
+  },
+  "status": 401,
+}
+`;

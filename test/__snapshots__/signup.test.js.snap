@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`/register endpoint register with duplicate email: register-duplicate-email 1`] = `
+{
+  "body": {
+    "error_code": "IP_RATE_LIMIT_EXCEEDED",
+    "message": "Too many registration attempts from your location. Please wait 60 seconds before trying again.",
+    "retry_after": 60,
+    "success": false,
+  },
+  "status": 429,
+}
+`;
+
+exports[`/register endpoint register with invalid email: register-invalid-email 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""email" must be a valid email",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "email",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`/register endpoint register with null referral_code: register-null-referral-code 1`] = `
+{
+  "body": {
+    "_id": "68de776e864382e17fca36a7",
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "127.0.0.1",
+    },
+  },
+  "status": 201,
+}
+`;

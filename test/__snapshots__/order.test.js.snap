@@ -1,0 +1,544 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Add Margin with wallet deduction and event changes able to add margin in leveraged positions 1`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 329,
+  "leverage": 1,
+  "pledge": 2,
+  "wager": 2,
+}
+`;
+
+exports[`Add Margin with wallet deduction and event changes able to add margin in leveraged positions 2`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 329,
+  "leverage": 1,
+  "pledge": 2,
+  "wager": 2,
+}
+`;
+
+exports[`Add Margin with wallet deduction and event changes verification of qoute data with force_leverage true 1`] = `
+{
+  "after_leverage": 2.195,
+  "after_payout": 18.21,
+  "after_pledge": 82,
+  "after_return": 22.207,
+  "after_stop_probability": 0.837,
+  "after_wager": 179.99,
+  "before_leverage": 2.225,
+  "before_payout": 18.13,
+  "before_pledge": 80,
+  "before_return": 22.662,
+  "before_stop_probability": 0.837,
+  "before_wager": 177.99,
+  "current_probability": 0.959,
+  "event_id": "DEV-000001",
+  "event_outcome_id": "A",
+  "expires_at": null,
+  "indicative_payout": 0.08,
+  "indicative_payout_rate": 4,
+  "indicative_return": 4,
+  "leverage": 1,
+  "loan": 0,
+  "max_leverage": 4,
+  "max_pledge": 466.11,
+  "max_wager": 466.11,
+  "min_pledge": 2,
+  "min_wager": 2,
+  "new_probability": 0.959,
+  "outcome_indicative_return": 4,
+  "pledge": 2,
+  "probability_change": 0,
+  "wager": 2,
+}
+`;
+
+exports[`Get Event Data and Quote Get Data of Event DEV-000001 1`] = `
+{
+  "_id": "DEV-000001",
+  "category": {
+    "icon": "gov",
+    "name": "Government",
+    "slug": "gov",
+  },
+  "code": "DEV-000001",
+  "collections": [
+    {
+      "icon": "pi pi-folder",
+      "image_url": "dota",
+      "link": "",
+      "name": "Dota",
+      "slug": "dota",
+      "target": "_self",
+    },
+    {
+      "icon": "pi pi-folder",
+      "image_url": "valo",
+      "link": "",
+      "name": "Valorant",
+      "slug": "valo",
+      "target": "_self",
+    },
+  ],
+  "description": "Who will win the 2025 Pro Tennis Championship? The market resolves based on the official final match results.",
+  "ends_at": "2025-10-29T14:00:00.000Z",
+  "event_images_url": [
+    "https://example.com/images/tennis-main.jpg",
+  ],
+  "featured_tag": {
+    "icon": "hot",
+    "name": "Hot",
+    "slug": "hot",
+  },
+  "name": "2025 Pro Tennis Championship",
+  "og_image_url": "https://example.com/images/tennis-og.jpg",
+  "outcomes": [
+    {
+      "_id": "A",
+      "description": "The highest-seeded player wins the 2025 Pro Tennis Championship",
+      "event_id": "DEV-000001",
+      "name": "Top Seeded Player Wins",
+      "trader_info": {
+        "estimated_payout": 4,
+        "estimated_probability": 0.959,
+        "event_id": "DEV-000001",
+        "event_outcome_id": "A",
+        "max_leverage": 4,
+        "max_pledge": 465.15,
+        "max_wager": 465.15,
+        "min_pledge": 2,
+        "min_wager": 2,
+        "timestamp": "<TS>",
+      },
+    },
+    {
+      "_id": "B",
+      "description": "A wildcard entrant makes a surprise run and wins the championship",
+      "event_id": "DEV-000001",
+      "name": "Wildcard Player Wins",
+      "trader_info": {
+        "estimated_payout": 4433,
+        "estimated_probability": 0.021,
+        "event_id": "DEV-000001",
+        "event_outcome_id": "B",
+        "max_leverage": 1,
+        "max_pledge": 25.79,
+        "max_wager": 25.79,
+        "min_pledge": 2,
+        "min_wager": 2,
+        "timestamp": "<TS>",
+      },
+    },
+    {
+      "_id": "C",
+      "description": "An underdog player defeats higher-ranked opponents and claims the title",
+      "event_id": "DEV-000001",
+      "name": "Underdog Player Wins",
+      "trader_info": {
+        "estimated_payout": 4622,
+        "estimated_probability": 0.02,
+        "event_id": "DEV-000001",
+        "event_outcome_id": "C",
+        "max_leverage": 1,
+        "max_pledge": 25.68,
+        "max_wager": 25.68,
+        "min_pledge": 2,
+        "min_wager": 2,
+        "timestamp": "<TS>",
+      },
+    },
+  ],
+  "participants_count": 138,
+  "recommended_images_url": [
+    "https://example.com/images/tennis-featured.jpg",
+  ],
+  "rules": "This market will resolve based on the official results announced by the Pro Tennis League organizers. In case of disputes, the officially recognized champion will determine settlement.",
+  "status": "open",
+  "stream_url": "https://www.youtube.com/watch?v=P90PMrRUDtU",
+  "tags": [
+    {
+      "icon": "hot",
+      "name": "Hot",
+      "slug": "hot",
+    },
+    {
+      "icon": "pl",
+      "name": "Premier League",
+      "slug": "pl",
+    },
+    {
+      "icon": "tennis",
+      "name": "Tennis",
+      "slug": "tennis",
+    },
+    {
+      "icon": "cs",
+      "name": "Counter Strike",
+      "slug": "cs",
+    },
+  ],
+  "ticker": "TENNISCHAMP2025",
+  "top_event_images_url": [
+    "https://example.com/images/tennis-banner.jpg",
+  ],
+  "volume": 5971.2,
+}
+`;
+
+exports[`Get Event Data and Quote has to give error when setting leverage above max_leverage 1`] = `
+{
+  "blackbox_api_agent": {
+    "parameters": {
+      "eventId": "DEV-000001",
+      "forceLeverage": false,
+      "outcomeId": "A",
+      "traderId": "T-000001",
+    },
+    "query": "pledge=200&leverage=5&forceLeverage=false",
+    "quoteView": {
+      "afterLeverage": 2.225,
+      "afterMPr": 0.959,
+      "afterPayout": 18.13,
+      "afterPledge": 80,
+      "afterReturn": 0.227,
+      "afterStopProb": 0.837,
+      "afterWager": 177.99,
+      "beforeLeverage": 2.179,
+      "beforeMPr": 0.959,
+      "beforePayout": 17.81,
+      "beforePledge": 78,
+      "beforeReturn": 0.228,
+      "beforeStopProb": 0.831,
+      "beforeWager": 169.99,
+      "eventId": "DEV-000001",
+      "indicativePayoutRate": 0.04,
+      "isValid": false,
+      "maxLeverage": 4,
+      "maxPledge": 116.28,
+      "maxWager": null,
+      "minPledge": 2,
+      "minWager": null,
+      "outcomeId": "A",
+      "quotedLeverage": 4,
+      "quotedPayoff": 2.33,
+      "quotedPayout": 0.33,
+      "quotedPledge": 2,
+      "quotedReturn": 0.165,
+      "quotedWager": 8,
+      "reason": "Leverage is too big.",
+      "requestedForceLeverage": false,
+      "requestedLeverage": 5,
+      "requestedPledge": 2,
+      "requestedWager": 10,
+      "traderId": "T-000001",
+    },
+    "response": {
+      "afterLeverage": 2.225,
+      "afterMPr": 0.959,
+      "afterPayout": 1813,
+      "afterPledge": 8000,
+      "afterReturn": 0.227,
+      "afterStopProb": 0.837,
+      "afterWager": 17799,
+      "beforeLeverage": 2.179,
+      "beforeMPr": 0.959,
+      "beforePayout": 1781,
+      "beforePledge": 7800,
+      "beforeReturn": 0.228,
+      "beforeStopProb": 0.831,
+      "beforeWager": 16999,
+      "eventId": "DEV-000001",
+      "indicativePayoutRate": 0.04,
+      "isValid": false,
+      "maxLeverage": 4,
+      "maxPledge": 11628,
+      "minPledge": 200,
+      "outcomeId": "A",
+      "quotedLeverage": 4,
+      "quotedPayoff": 233,
+      "quotedPayout": 33,
+      "quotedPledge": 200,
+      "quotedReturn": 0.165,
+      "quotedWager": 800,
+      "reason": "Leverage is too big.",
+      "requestedForceLeverage": false,
+      "requestedLeverage": 5,
+      "requestedPledge": 200,
+      "requestedWager": 1000,
+      "traderId": "T-000001",
+    },
+  },
+  "error": "Conflict",
+  "message": "Failed to get a quote. Reason:Leverage is too big.",
+  "statusCode": 409,
+}
+`;
+
+exports[`Get Event Data and Quote has to give error when setting pledge above max_pledge 1`] = `
+{
+  "error": "Conflict",
+  "message": "Pledge amount 466.15 exceeds maximum allowed pledge of 465.15000000000003",
+  "statusCode": 409,
+  "validation_error": {
+    "field": "pledge",
+    "maximum": 465.15,
+    "minimum": 2,
+    "requested": 466.15,
+  },
+}
+`;
+
+exports[`Get Event Data and Quote has to give error when setting pledge below min_pledge 1`] = `
+{
+  "error": "Conflict",
+  "message": "Pledge amount 1 is below minimum required pledge of 2",
+  "statusCode": 409,
+  "validation_error": {
+    "field": "pledge",
+    "maximum": 465.15,
+    "minimum": 2,
+    "requested": 1,
+  },
+}
+`;
+
+exports[`Get Event Data and Quote has to give quote for max_leverage 1`] = `
+{
+  "after_leverage": 2.225,
+  "after_payout": 18.13,
+  "after_pledge": 80,
+  "after_return": 22.662,
+  "after_stop_probability": 0.837,
+  "after_wager": 177.99,
+  "before_leverage": 2.179,
+  "before_payout": 17.81,
+  "before_pledge": 78,
+  "before_return": 22.833,
+  "before_stop_probability": 0.831,
+  "before_wager": 169.99,
+  "current_probability": 0.959,
+  "event_id": "DEV-000001",
+  "event_outcome_id": "A",
+  "expires_at": null,
+  "indicative_payout": 0.33,
+  "indicative_payout_rate": 4,
+  "indicative_return": 16.5,
+  "leverage": 4,
+  "loan": 6,
+  "max_leverage": 4,
+  "max_pledge": 116.28,
+  "max_wager": 116.28,
+  "min_pledge": 2,
+  "min_wager": 2,
+  "new_probability": 0.959,
+  "outcome_indicative_return": 4,
+  "pledge": 2,
+  "probability_change": 0,
+  "wager": 8,
+}
+`;
+
+exports[`Get Event Data and Quote has to give quote for max_pledge 1`] = `
+{
+  "after_leverage": 1,
+  "after_payout": 402.52,
+  "after_pledge": 5436.59,
+  "after_return": 7.404,
+  "after_stop_probability": 0,
+  "after_wager": 5436.59,
+  "before_leverage": 1,
+  "before_payout": 395.75,
+  "before_pledge": 4971.44,
+  "before_return": 7.96,
+  "before_stop_probability": 0,
+  "before_wager": 4971.44,
+  "current_probability": 0.959,
+  "event_id": "DEV-000001",
+  "event_outcome_id": "A",
+  "expires_at": null,
+  "indicative_payout": 18.17,
+  "indicative_payout_rate": 4,
+  "indicative_return": 3.906,
+  "leverage": 1,
+  "loan": 0,
+  "max_leverage": 1,
+  "max_pledge": 465.15,
+  "max_wager": 465.15,
+  "min_pledge": 2,
+  "min_wager": 2,
+  "new_probability": 0.963,
+  "outcome_indicative_return": 4,
+  "pledge": 465.15,
+  "probability_change": 0.003,
+  "wager": 465.15,
+}
+`;
+
+exports[`Get Event Data and Quote has to give quote for min_pledge 1`] = `
+{
+  "after_leverage": 1,
+  "after_payout": 395.78,
+  "after_pledge": 4973.44,
+  "after_return": 7.958,
+  "after_stop_probability": 0,
+  "after_wager": 4973.44,
+  "before_leverage": 1,
+  "before_payout": 395.75,
+  "before_pledge": 4971.44,
+  "before_return": 7.96,
+  "before_stop_probability": 0,
+  "before_wager": 4971.44,
+  "current_probability": 0.959,
+  "event_id": "DEV-000001",
+  "event_outcome_id": "A",
+  "expires_at": null,
+  "indicative_payout": 0.08,
+  "indicative_payout_rate": 4,
+  "indicative_return": 4,
+  "leverage": 1,
+  "loan": 0,
+  "max_leverage": 4,
+  "max_pledge": 465.15,
+  "max_wager": 465.15,
+  "min_pledge": 2,
+  "min_wager": 2,
+  "new_probability": 0.959,
+  "outcome_indicative_return": 4,
+  "pledge": 2,
+  "probability_change": 0,
+  "wager": 2,
+}
+`;
+
+exports[`Wager Creation & Verification Get Wallet Data 1`] = `
+{
+  "balances": {
+    "bonus": 818,
+    "profit": 74.56,
+    "topup": 0,
+    "total": 892.56,
+    "withdrawable": 74.56,
+  },
+  "success": true,
+  "trader_id": "T-000001",
+  "wallets": {
+    "bonus": {
+      "balance": 818,
+      "currency": "USDT",
+      "id": 146,
+      "last_transaction_at": "2025-10-02T11:48:27.000Z",
+    },
+    "profit": {
+      "balance": 74.56,
+      "currency": "USDT",
+      "id": 145,
+      "last_transaction_at": "2025-10-02T13:01:50.000Z",
+    },
+    "topup": {
+      "balance": 0,
+      "currency": "USDT",
+      "id": 144,
+      "last_transaction_at": "2025-10-02T12:44:47.000Z",
+    },
+  },
+}
+`;
+
+exports[`Wager Creation & Verification has to create wager with max_pledge with no leverage 1`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 304,
+  "leverage": 1,
+  "pledge": 339.25,
+  "wager": 339.25,
+}
+`;
+
+exports[`Wager Creation & Verification has to create wager with min_pledge and leverage 1 1`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 326,
+  "leverage": 1,
+  "pledge": 2,
+  "wager": 2,
+}
+`;
+
+exports[`Wager Creation & Verification has to give error when setting max_payout above indicative_payout 1`] = `
+{
+  "error": "Internal Server Error",
+  "message": "An internal server error occurred",
+  "statusCode": 500,
+}
+`;
+
+exports[`Wager Creation & Verification has to give error when setting pledge above max_pledge 1`] = `
+{
+  "error": "Internal Server Error",
+  "message": "An internal server error occurred",
+  "statusCode": 500,
+}
+`;
+
+exports[`Wager Creation & Verification has to give error when setting pledge below min_pledge 1`] = `
+{
+  "error": "Internal Server Error",
+  "message": "An internal server error occurred",
+  "statusCode": 500,
+}
+`;
+
+exports[`Wager Creation & Verification has to give unauthorized error when not providing auth token 1`] = `
+{
+  "error": "Unauthorized",
+  "message": "Missing authentication",
+  "statusCode": 401,
+}
+`;
+
+exports[`Wager Creation and Verification of Wallet Deductions and Event Changes can wager with max leverage and min pledge - verify wallet deduction and event changes 1`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 328,
+  "leverage": 4,
+  "pledge": 2,
+  "wager": 8,
+}
+`;
+
+exports[`Wager Creation and Verification of Wallet Deductions and Event Changes can wager with max pledge min leverage - verify wallet deduction and event changes 1`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 306,
+  "leverage": 1,
+  "pledge": 366.71,
+  "wager": 366.71,
+}
+`;
+
+exports[`Wager Creation and Verification of Wallet Deductions and Event Changes can wager with min pledge min leverage - verify wallet deduction and event changes 1`] = `
+{
+  "created_at": "<TS>",
+  "eventId": "68c9334ab01f0b71bbc1fea9",
+  "eventOutcomeId": "68c9334ab01f0b71bbc1feb0",
+  "id": 327,
+  "leverage": 1,
+  "pledge": 2,
+  "wager": 2,
+}
+`;

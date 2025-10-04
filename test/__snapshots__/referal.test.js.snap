@@ -1,0 +1,368 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user1, get referral code, create user2 with referral, user2 gets $10 bonus: user1-me 1`] = `
+{
+  "body": {
+    "_id": "<DYNAMIC_USER_ID>",
+    "display_name": "<DYNAMIC_DISPLAY_NAME>",
+    "email": "<DYNAMIC_EMAIL>",
+    "email_verified": false,
+    "full_name": "",
+    "identity_verified": false,
+    "isUpgraded": false,
+    "is_new": true,
+    "phone_verified": false,
+    "referral_code": "<DYNAMIC_REFERRAL_CODE>",
+    "referral_code_expires_at": "<DYNAMIC_REFERRAL_CODE_EXPIRES_AT>",
+    "referral_code_quota": 9999999,
+    "user_level": {
+      "all_levels_progress": {
+        "0": {
+          "coratio": 0.3,
+          "is_completed": true,
+          "is_current": true,
+          "level": 0,
+          "name": "Untrusted (Rookie Forecaster)",
+          "progress": {
+            "signup": true,
+          },
+          "requirements": [],
+        },
+        "1": {
+          "coratio": 0.25,
+          "is_completed": false,
+          "is_current": false,
+          "level": 1,
+          "name": "Noob (Predictor in Training)",
+          "progress": {
+            "deposit": 0,
+            "email_verified": false,
+            "phone_verified": false,
+            "traded_amount": 0,
+          },
+          "requirements": [
+            "Verify email address",
+            "Verify phone number",
+            "Make a deposit of at least $1",
+            "Trade $1.00 more in non-bonus money",
+          ],
+        },
+        "2": {
+          "coratio": 0.2,
+          "is_completed": false,
+          "is_current": false,
+          "level": 2,
+          "name": "Regular (Seasoned Speculator)",
+          "progress": {
+            "kyc_verified": false,
+            "level_1_requirement": false,
+            "traded_amount": 0,
+          },
+          "requirements": [
+            "Complete KYC verification",
+            "Trade $100.00 more in non-bonus money (last 90 days)",
+          ],
+        },
+        "3": {
+          "coratio": 0.1,
+          "is_completed": false,
+          "is_current": false,
+          "level": 3,
+          "name": "Trusted Regular (Market Oracle)",
+          "progress": {
+            "level_2_requirement": false,
+            "traded_amount": 0,
+          },
+          "requirements": [
+            "Trade $10000.00 more in non-bonus money (last 90 days)",
+          ],
+        },
+      },
+      "bypass_enabled": false,
+      "coratio": 0.3,
+      "current_level": 0,
+      "level_name": "Untrusted (Rookie Forecaster)",
+      "perks": {
+        "can_browse_events": true,
+        "can_deposit_credit_card": false,
+        "can_deposit_crypto": true,
+        "can_receive_bonuses": true,
+        "can_refer_friends": true,
+        "can_trade_regular": true,
+        "can_trade_vip_events": false,
+        "can_use_bonuses": false,
+        "can_withdraw": true,
+      },
+    },
+    "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    "withdrawal_limits": {
+      "limit": 200,
+      "period": "monthly",
+      "remaining": 200,
+      "reset_date": "2025-10-31T18:30:00.000Z",
+      "used": 0,
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user1, get referral code, create user2 with referral, user2 gets $10 bonus: user1-verify 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user1, get referral code, create user2 with referral, user2 gets $10 bonus: user2-verify-with-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user1, get referral code, create user2 with referral, user2 gets $10 bonus: user2-wallets-bonus 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 10,
+      "profit": 0,
+      "topup": 0,
+      "total": 10,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 10,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user3 with non-existent referral code → success, no bonus: user3-verify-nonexistent-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user3 with non-existent referral code → success, no bonus: user3-wallets-nonexistent-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 0,
+      "profit": 0,
+      "topup": 0,
+      "total": 0,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user4 with invalid referral code → success, no bonus: user4-verify-invalid-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user4 with invalid referral code → success, no bonus: user4-wallets-invalid-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 0,
+      "profit": 0,
+      "topup": 0,
+      "total": 0,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user5 with no referral code → success, no bonus: user5-verify-no-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user5 with no referral code → success, no bonus: user5-wallets-no-referral 1`] = `
+{
+  "body": {
+    "balances": {
+      "bonus": 0,
+      "profit": 0,
+      "topup": 0,
+      "total": 0,
+      "withdrawable": 0,
+    },
+    "success": true,
+    "trader_id": "<DYNAMIC_TRADER_ID>",
+    "wallets": {
+      "bonus": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "profit": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+      "topup": {
+        "balance": 0,
+        "currency": "USDT",
+        "id": "<DYNAMIC_WALLET_ID>",
+        "last_transaction_at": "<DYNAMIC_LAST_TX_AT>",
+      },
+    },
+  },
+  "status": 200,
+}
+`;
+
+exports[`Auth V2 Wallet Referral Scenarios Referral Flow Create user6 with empty referral code → fail: user6-verify-empty-referral 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""referral_code" is not allowed to be empty",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "<DYNAMIC_KEY>",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;

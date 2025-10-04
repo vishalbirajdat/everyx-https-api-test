@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios empty payload → fail: wallet-verify-empty-payload 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""signature" is required",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "<DYNAMIC_KEY>",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios missing signature → fail: wallet-verify-missing-signature 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""signature" is required",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "<DYNAMIC_KEY>",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios missing wallet address → fail: wallet-verify-missing-wallet 1`] = `
+{
+  "body": {
+    "error": "Bad Request",
+    "message": ""walletAddress" is required",
+    "statusCode": 400,
+    "validation": {
+      "keys": [
+        "<DYNAMIC_KEY>",
+      ],
+      "source": "payload",
+    },
+  },
+  "status": 400,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios no referral code → success: wallet-verify-no-referral 1`] = `
+{
+  "body": {
+    "success": true,
+    "token": "<DYNAMIC_TOKEN>",
+    "tracking_data": {
+      "ip": "<DYNAMIC_IP>",
+      "wallet_address": "<DYNAMIC_WALLET_ADDRESS>",
+    },
+    "user": {
+      "email": "<DYNAMIC_EMAIL>",
+      "id": "<DYNAMIC_USER_ID>",
+    },
+    "user_action": "signup",
+  },
+  "status": 201,
+}
+`;
+
+exports[`Auth V2 Wallet Wallet Verify Scenarios wrong wallet address → fail: wallet-verify-wrong-wallet 1`] = `
+{
+  "body": {
+    "message": "Nonce not found. Please request a new one.",
+    "success": false,
+  },
+  "status": 400,
+}
+`;

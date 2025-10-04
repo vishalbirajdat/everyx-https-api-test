@@ -1,338 +1,190 @@
-# EverX HTTPS API Test Suite
+# Order Creation and Trading Flow Test Suite
 
-A comprehensive test suite for testing the EverX event management API endpoints. This test suite covers the complete event lifecycle from creation to resolution, including all status transitions and error handling scenarios.
+## Overview
 
-## 📋 Table of Contents
+This comprehensive test suite (`order-creation.test.js`) validates the complete end-to-end trading workflow of the EveryX platform, from event creation to resolution and payout distribution. The tests simulate real-world trading scenarios with multiple users placing bets on different outcomes.
 
-- [Overview](#overview)
-- [Test Structure](#test-structure)
-- [Setup and Configuration](#setup-and-configuration)
-- [Test Files](#test-files)
-- [Event Status Lifecycle](#event-status-lifecycle)
-- [Running Tests](#running-tests)
-- [Environment Variables](#environment-variables)
-- [API Endpoints Tested](#api-endpoints-tested)
-- [Test Scenarios](#test-scenarios)
-- [Troubleshooting](#troubleshooting)
+## What This Test Suite Covers
 
-## 🎯 Overview
+The test suite validates the following core functionality:
 
-This test suite validates the EverX event management system, focusing on:
-- Event creation and validation
-- Event outcome management
-- Complete event status lifecycle testing
-- Authorization and error handling
-- API response validation with snapshots
+1. **Event Management**: Creates test events with multiple outcomes
+2. **User Authentication**: Generates authentication tokens for test users
+3. **Wallet Operations**: Retrieves user wallet information
+4. **Quote Generation**: Tests real-time quote calculation for wagers
+5. **Wager Creation**: Places bets across different outcomes and users
+6. **Position Tracking**: Monitors user positions before and after resolution
+7. **Event Lifecycle**: Tests event closure and resolution processes
+8. **Payout Resolution**: Validates win/loss calculations post-event
 
-## 🏗️ Test Structure
-
-```
-test/
-├── create-event.test.js      # Event creation, outcomes, open/close operations
-├── pause-event.test.js       # Event pause functionality
-├── resolve-event.test.js     # Event resolution with dry-run support
-├── status-transition-flow.test.js  # Complete status flow testing
-└── __snapshots__/           # Jest snapshots for response validation
-```
-
-## ⚙️ Setup and Configuration
+## Test Structure
 
 ### Prerequisites
+- Node.js environment with Jest testing framework
+- Valid `ADMIN_TOKEN` in environment variables
+- API endpoint accessible via `API_BASE_URL` (defaults to `http://localhost:8800`)
+- Test user accounts with email addresses defined in `TEST_USERS` array
 
-- Node.js (v14 or higher)
-- Jest testing framework
-- Access to EverX API environment
-- Valid admin authentication token
+### Test Users
+The suite uses three predefined test user accounts:
+- `dny9136833946@gmail.com` (User 1)
+- `1032220499@tcetmumbai.in` (User 2)  
+- `yadavdeepak5112001@gmail.com` (User 3)
 
-### Installation
+### Test Flow
 
+#### 1. Event Setup (beforeAll)
+- Creates a randomly-named test event with 30-day expiry
+- Adds two outcomes: "Team A Wins" and "Team B Wins" (labeled A and B)
+- Opens the event for trading
+- Retrieves event details and minimum pledge requirements
+
+#### 2. User Authentication Tests
+- Generates JWT tokens for all three test users
+- Stores tokens for subsequent test operations
+- Uses snapshot testing for response validation
+
+#### 3. Wallet Information Tests
+- Retrieves wallet details for each authenticated user
+- Stores wallet IDs for wager creation
+- Validates wallet structure (topup, profit, bonus)
+
+#### 4. Quote Generation Tests
+- Creates individual quote requests for each user-outcome combination
+- Tests both outcome A (Team A Wins) and outcome B (Team B Wins)
+- Validates quote calculations and indicative payouts
+
+#### 5. Wager Creation Tests
+- Places actual bets using the generated quotes
+- Each user creates wagers on both outcomes
+- Uses minimum pledge amounts with 1.0 leverage
+- Tracks indicative payouts for maximum payout validation
+
+#### 6. Pre-Resolution Verification
+- Checks user positions after all wagers are placed
+- Verifies event remains open for trading
+- Confirms all positions are marked as 'open'
+
+#### 7. Event Closure Tests
+- Adds a 12-second delay before closure (simulating real-world timing)
+- Closes the event for resolution
+- Verifies event status changes to 'closed'
+
+#### 8. Event Resolution Tests
+- Resolves the event with Outcome A as the winner
+- Sets resolution timestamp 2 minutes in the future
+- Verifies event status changes to 'resolved'
+
+#### 9. Post-Resolution Analysis
+- Checks final user positions after resolution
+- Validates win/loss calculations:
+  - Users betting on Outcome A should have 'WIN' status
+  - Users betting on Outcome B should have 'LOSS' status
+- All positions change from 'open' to 'closed' type
+
+## Key Features
+
+### Dynamic Event Creation
+- Uses random suffixes to avoid test conflicts
+- Creates realistic event data with Japanese translations
+- Sets appropriate timezones (Asia/Calcutta)
+
+### Multi-User Scenarios
+- Tests concurrent trading by multiple users
+- Validates isolation between user accounts
+- Ensures consistent behavior across different user types
+
+### State Management
+- Tracks created events, outcomes, and user data globally
+- Maintains authentication state across test suites
+- Preserves wallet and position information throughout the flow
+
+### Snapshot Testing
+- Uses `sanitizeResponse()` utility to ensure consistent snapshots
+- Removes dynamic values (IDs, timestamps, tokens)
+- Enables reliable regression testing
+
+### Error Handling
+- Validates all API responses return expected status codes
+- Checks for proper error conditions
+- Ensures graceful failure handling
+
+## Running the Tests
+
+### Prerequisites
+1. Ensure API server is running and accessible
+2. Set `ADMIN_TOKEN` environment variable
+3. Verify test user accounts exist in the system
+4. Install dependencies: `npm install`
+
+### Command
 ```bash
-npm install
-# or
-pnpm install
+npm test order-creation.test.js
 ```
 
-### Environment Setup
+### Environment Variables
+Required environment variables:
+- `ADMIN_TOKEN`: Valid admin authentication token
+- `API_BASE_URL`: API endpoint (optional, defaults to localhost:8800)
 
-Create a `.env` file in the root directory:
+## Expected Behavior
 
-```env
-# API Configuration
-API_BASE_URL=http://localhost:8800
-ADMIN_TOKEN=your_admin_token_here
+### Successful Test Run
+- All tests should pass with exit code 0
+- Snapshots should match existing snapshots or be updated
+- Console output should show progression through test stages
+- No authentication or API errors should occur
 
-# Timing Configuration (optional)
-RESOLVE_DELAY=120000    # 2 minutes in milliseconds
-PAUSE_DELAY=1000        # 1 second
-OPEN_DELAY=120000       # 2 minutes
-CLOSE_DELAY=120000      # 2 minutes
-```
+### Test Data Cleanup
+- Test events created during execution should be cleaned up automatically
+- User tokens expire naturally after test completion
+- No persistent test data should remain in production systems
 
-## 📁 Test Files
+## API Endpoints Tested
 
-### 1. `create-event.test.js`
-**Primary Event Management Tests**
+### Admin Endpoints
+- `POST /admin/events` - Event creation
+- `POST /admin/events/{code}/outcomes` - Add outcomes
+- `POST /admin/events/{code}/open` - Open event for trading
+- `POST /admin/events/{id}/close` - Close event
+- `POST /admin/events/{id}/resolve` - Resolve event
+- `POST /admin/dev-scripts/generate-user-token` - Generate auth tokens
 
-- ✅ Event creation with valid payload
-- ✅ Duplicate event name/ticker validation
-- ✅ Invalid ticker format handling
-- ✅ Authorization validation
-- ✅ Required field validation
-- ✅ Date format validation
-- ✅ Timezone validation
-- ✅ Outcome creation (Yes/No outcomes)
-- ✅ Duplicate outcome validation
-- ✅ Event opening functionality
-- ✅ Event closing functionality
+### User Endpoints
+- `GET /wallets` - Retrieve wallet information
+- `POST /quotes` - Generate trading quotes
+- `POST /wagers` - Place wagers
+- `GET /wagers/events/{code}` - Get positions
+- `GET /events/{code}` - Get event details
 
-### 2. `pause-event.test.js`
-**Event Pause Operations**
-
-- ✅ Successfully pause an open event
-- ✅ Error handling for pausing already paused event
-- ✅ Unauthorized access validation
-- ✅ Non-existent event handling
-- ✅ Reopening paused events
-
-### 3. `resolve-event.test.js`
-**Event Resolution Testing**
-
-- ✅ Dry-run validation (returns validation results)
-- ✅ Successful event resolution
-- ✅ Already resolved event error handling
-- ✅ Missing required fields validation
-- ✅ Authorization validation
-- ✅ Non-existent event handling
-
-### 4. `status-transition-flow.test.js`
-**Complete Lifecycle Testing**
-
-- ✅ Full status flow: `created` → `open` → `paused` → `open` → `closed` → `resolved`
-- ✅ Configurable timing delays between transitions
-- ✅ Real-world scenario simulation
-
-## 🔄 Event Status Lifecycle
-
-The test suite validates the complete event status lifecycle:
-
-```
-created → open → paused → open → closed → resolved
-    ↓       ↓       ↓       ↓       ↓        ↓
-   ✅      ✅      ✅      ✅      ✅       ✅
-```
-
-### Valid Status Transitions
-
-| From Status | To Status | Endpoint | Test Coverage |
-|-------------|-----------|----------|---------------|
-| `created` | `open` | `POST /admin/events/:id/open` | ✅ |
-| `open` | `paused` | `POST /admin/events/:id/pause` | ✅ |
-| `paused` | `open` | `POST /admin/events/:id/open` | ✅ |
-| `open` | `closed` | `POST /admin/events/:id/close` | ✅ |
-| `paused` | `closed` | `POST /admin/events/:id/close` | ✅ |
-| `closed` | `resolved` | `POST /admin/events/:id/resolve` | ✅ |
-
-## 🚀 Running Tests
-
-### Run All Tests
-```bash
-npm test
-```
-
-### Run Specific Test Files
-```bash
-# Event creation and basic operations
-npm test create-event.test.js
-
-# Pause functionality
-npm test pause-event.test.js
-
-# Resolution functionality
-npm test resolve-event.test.js
-
-# Complete status flow
-npm test status-transition-flow.test.js
-```
-
-### Run Tests with Verbose Output
-```bash
-npm test -- --verbose
-```
-
-### Update Snapshots
-```bash
-npm test -- --updateSnapshot
-```
-
-## 🌍 Environment Variables
-
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `API_BASE_URL` | Base URL for the API | `http://localhost:8800` | ✅ |
-| `ADMIN_TOKEN` | Admin authentication token | - | ✅ |
-| `RESOLVE_DELAY` | Delay before resolution (ms) | `120000` | ❌ |
-| `PAUSE_DELAY` | Delay after pause (ms) | `1000` | ❌ |
-| `OPEN_DELAY` | Delay after open (ms) | `120000` | ❌ |
-| `CLOSE_DELAY` | Delay after close (ms) | `120000` | ❌ |
-
-## 🔗 API Endpoints Tested
-
-### Event Management
-- `POST /admin/events` - Create new event
-- `POST /admin/events/:id/outcomes` - Create event outcomes
-- `POST /admin/events/:id/open` - Open event for trading
-- `POST /admin/events/:id/pause` - Pause event trading
-- `POST /admin/events/:id/close` - Close event trading
-- `POST /admin/events/:id/resolve` - Resolve event with outcome
-
-## 📊 Test Scenarios
-
-### Success Scenarios ✅
-- Complete event lifecycle execution
-- Valid payload processing
-- Proper status transitions
-- Successful authentication
-- Dry-run validation
-
-### Error Scenarios ❌
-- Duplicate event names/tickers
-- Invalid payload formats
-- Unauthorized access attempts
-- Invalid status transitions
-- Non-existent resource access
-- Missing required fields
-
-### Edge Cases 🔍
-- Timezone validation
-- Date format validation
-- Ticker format validation
-- Multiple outcome creation
-- Already processed operations
-
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Common Issues
+1. **Authentication Failures**: Verify `ADMIN_TOKEN` is valid
+2. **API Timeouts**: Check API server connectivity and health
+3. **User Not Found**: Ensure test user emails exist in the system
+4. **Quote Generation Failures**: Verify event is properly opened and has outcomes
 
-**1. Authentication Errors (401)**
+### Debug Information
+- Test output includes detailed console logging
+- Response structures are logged for debugging
+- Snapshot mismatches indicate potential changes in API responses
+
+## Maintenance Notes
+
+### Updating Snapshots
+When API responses change intentionally:
 ```bash
-# Ensure your admin token is valid and properly set
-export ADMIN_TOKEN=your_valid_token
+npm test -- --updateSnapshots
 ```
 
-**2. Test Timeouts**
-```bash
-# Increase Jest timeout in package.json
-"jest": {
-  "testTimeout": 300000
-}
-```
+### Adding New Test Scenarios
+Add new tests within existing describe blocks to maintain test organization
 
-**3. API Connection Issues**
-```bash
-# Verify API base URL is correct
-export API_BASE_URL=http://your-api-server:port
-```
+### Updating Test Users
+Modify the `TEST_USERS` array if test user accounts change
 
-**4. Snapshot Mismatches**
-```bash
-# Update snapshots if API responses have changed
-npm test -- --updateSnapshot
-```
+### Timeout Adjustments
+The Jest timeout is set to 5 minutes (300000ms) in package.json for complex operations
 
-### Debug Mode
-
-Enable verbose logging by adding console.log statements or running:
-```bash
-DEBUG=* npm test
-```
-
-## 📈 Test Coverage
-
-The test suite provides comprehensive coverage of:
-- **API Endpoints**: 100% of event management endpoints
-- **Status Transitions**: All valid state changes
-- **Error Handling**: Authentication, validation, and business logic errors
-- **Edge Cases**: Invalid inputs, duplicate operations, and boundary conditions
-
-## 🤝 Contributing
-
-When adding new tests:
-1. Follow the existing naming conventions
-2. Include both success and error scenarios
-3. Add appropriate snapshots for response validation
-4. Update this README with new test descriptions
-5. Ensure proper cleanup of test data
-
-## 📝 Notes
-
-- Tests use dynamic event names with random suffixes to avoid conflicts
-- Each test suite creates its own events to ensure isolation
-- Timing delays in status-transition-flow.test.js can be configured via environment variables
-- All responses are sanitized before snapshot comparison to remove dynamic fields
-- Tests are designed to run against both development and staging environments
-
-## 📋 Test Data Structure
-
-### Event Payload Example
-```json
-{
-  "ticker": "BTCTESTEVENT123456",
-  "name": "Bitcoin Test Event 123456",
-  "name_jp": "ビットコインテストイベント123456",
-  "description": "A comprehensive test event for Bitcoin trading #123456",
-  "description_jp": "ビットコイン取引のための包括的なテストイベント #123456",
-  "rules": "Standard trading rules apply",
-  "ends_at": "2024-11-01T12:00:00.000Z",
-  "timezone": "Asia/Calcutta",
-  "event_images_url": ["https://example.com/image.jpg"],
-  "recommended_images_url": [],
-  "top_event_images_url": [],
-  "is_top_events": false,
-  "is_featured_events": false,
-  "og_image_url": "",
-  "stream_url": ""
-}
-```
-
-### Outcome Payload Example
-```json
-{
-  "name": "Yes",
-  "name_jp": "はい"
-}
-```
-
-### Resolve Payload Example
-```json
-{
-  "event_outcome_id": "outcome_id_here",
-  "ends_at": "2024-10-02T12:00:00.000Z",
-  "dry_run": false
-}
-```
-
-## 🔍 Response Validation
-
-The test suite uses Jest snapshots to validate API responses. Key features:
-- **Sanitized Responses**: Dynamic fields (IDs, timestamps) are sanitized before comparison
-- **Consistent Testing**: Ensures API responses maintain expected structure
-- **Change Detection**: Automatically detects when API response formats change
-
-### Snapshot Management
-```bash
-# View current snapshots
-ls test/__snapshots__/
-
-# Update all snapshots
-npm test -- --updateSnapshot
-
-# Update specific test snapshots
-npm test create-event.test.js -- --updateSnapshot
-```
-
----
-
-**Last Updated**: October 2024  
-**Test Framework**: Jest v30.2.0  
-**API Version**: EverX v1.0  
-**Maintainer**: Development Team
+This test suite serves as a critical component of the EveryX platform's quality assurance, ensuring reliability and consistency across the entire trading lifecycle.
